@@ -15,7 +15,7 @@ def classify(title,description):
     book=next((b for b in books if re.search(r'(?<!\w)'+re.escape(b)+r'\b',title,re.I)),None)
     if not book and re.search(r'Gospel of John',text,re.I):book='John'
     # Capture named preacher after explicit attribution; otherwise leave blank.
-    match=re.search(r'\b(?:preached\s+(?:at\s+[^.]{0,100}?\s+)?by|preached\s+by|preacher\s*:\s*|speaker\s*:\s*)(?:Pastor\s+|Rev\.?\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})',description)
+    match=re.search(r'\b(?:preached[ \t]+by|preacher[ \t]*:?[ \t]*|speaker[ \t]*:?[ \t]*|by)[ \t]+(?:(?:Pastor|Rev\.?|Elder|Deacon|Ptr)[ \t]+)?([A-Z][a-z]+(?:[ \t]+[A-Z][a-z]+){1,3})\b',description)
     preacher=match.group(1) if match else None
     dm=re.search(r'\b(?:Sunday\s+(?:the\s+)?)?(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d\d|19\d\d)\b',description,re.I)
     preached=None
