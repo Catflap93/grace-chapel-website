@@ -17,6 +17,9 @@ def classify(title,description):
     # Capture named preacher after explicit attribution; otherwise leave blank.
     match=re.search(r'\b(?:preached\s+by|preached\s+at\b[^.]{0,150}?\bby|preacher\s*:?\s*|speaker\s*:?\s*|(?:ministry|message|sermon|preaching)\s+by)\s+(?:(?:Pastor|Rev\.?|Elder|Deacon)\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b',description,re.I)
     preacher=match.group(1) if match else None
+    if preacher:
+        preacher=re.split(r'\s+(?:on|at|and|the|with|from|in|for|Hymn)\b',preacher,maxsplit=1,flags=re.I)[0].strip()
+        preacher=re.sub(r'^(?:Pastor|Rev\.?|Ptr|Elder|Deacon)\s+','',preacher,flags=re.I)
     dm=re.search(r'\b(?:Sunday\s+(?:the\s+)?)?(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d\d|19\d\d)\b',description,re.I)
     preached=None
     if dm:
