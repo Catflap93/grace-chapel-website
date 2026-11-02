@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T06:46:34.424097+00:00",
+  "updated": "2026-11-02T07:09:24.849278+00:00",
   "sermons": [
     {
       "id": "BgH5Ys1E_a0",
@@ -1314,10 +1314,10 @@
       "id": "Ola18hxH9Xs",
       "title": "John Wycliffe - Grandfather of the Reformation",
       "book": "John",
-      "preacher": "Joshua Oliver\nLecture",
+      "preacher": "Joshua Oliver",
       "preached": "2024-11-09",
       "series": null,
-      "description": "Preacher: Joshua Oliver\nLecture 1 from our Reformation Conference at Grace Chapel, on Saturday 9th November 2024. Joshua Oliver introduces us to the Medieval scholar and Bible translator John Wycliffe, whose ideas formed a movement and prepared the ground for the Reformation.",
+      "description": "Preacher: Joshua Oliver.\nLecture 1 from our Reformation Conference at Grace Chapel, on Saturday 9th November 2024. Joshua Oliver introduces us to the Medieval scholar and Bible translator John Wycliffe, whose ideas formed a movement and prepared the ground for the Reformation.",
       "uploaded": "2024-11-10T15:20:58Z",
       "source": "youtube"
     },
@@ -3236,17 +3236,6 @@
       "source": "youtube"
     },
     {
-      "id": "IA3d1T4SX60",
-      "title": "Live: Expository Ministry on Song of Songs 8:5-14",
-      "book": null,
-      "preacher": "Jacob Saywell",
-      "preached": null,
-      "series": null,
-      "description": "Expostiory ministry by Jacob Saywell",
-      "uploaded": "2023-07-03T00:09:20Z",
-      "source": "youtube"
-    },
-    {
       "id": "zG5X_5hqwUI",
       "title": "Live: Gospel Service John 6",
       "book": "John",
@@ -3255,6 +3244,28 @@
       "series": null,
       "description": "Expository gospel ministry by Pastor Andrew Saywell on Sunday 2nd July 2023.",
       "uploaded": "2023-07-03T06:38:12Z",
+      "source": "youtube"
+    },
+    {
+      "id": "IA3d1T4SX60",
+      "title": "Live: Expository Ministry on Song of Songs 8v5-14",
+      "book": null,
+      "preacher": "Jacob Saywell",
+      "preached": "2023-07-02",
+      "series": null,
+      "description": "Expostiory ministry on Song of Songs 8v5-14, preached at Grace Chapel on Sunday the 2nd July 2023, by Jacob Saywell",
+      "uploaded": "2023-07-03T00:09:20Z",
+      "source": "youtube"
+    },
+    {
+      "id": "RwAIt-8q3dE",
+      "title": "Live: Expository Ministry on Song of Songs 2v8-3v5",
+      "book": null,
+      "preacher": "Jacob Saywell",
+      "preached": "2023-07-02",
+      "series": null,
+      "description": "Expository ministry on Song of Songs 2v8-3:5, preached at Grace Chapel on the 2nd July 2023, by Jacob Saywell.",
+      "uploaded": "2023-06-04T23:48:37Z",
       "source": "youtube"
     },
     {
@@ -3314,12 +3325,12 @@
     },
     {
       "id": "ZRiO3Q7xaN4",
-      "title": "Live: Expository Ministry on Song of Songs 3:6-5:1",
+      "title": "Live: Expository Ministry on Song of Songs 3v6-5v1",
       "book": null,
       "preacher": "Jacob Saywell",
-      "preached": null,
+      "preached": "2023-06-11",
       "series": null,
-      "description": "Devotional teaching ministry by Elder Jacob Saywell",
+      "description": "Expository ministry on Song of Songs 3v6-5v1, preached at Grace Chapel on the 11th June 2023, by Jacob Saywell.",
       "uploaded": "2023-06-11T23:52:34Z",
       "source": "youtube"
     },
@@ -3343,17 +3354,6 @@
       "series": null,
       "description": "Expository gospel ministry preached by Pastor Andrew Saywell",
       "uploaded": "2023-06-05T06:43:57Z",
-      "source": "youtube"
-    },
-    {
-      "id": "RwAIt-8q3dE",
-      "title": "Live: Espository Ministry on Song of Songs 2:8-3:5",
-      "book": null,
-      "preacher": null,
-      "preached": null,
-      "series": null,
-      "description": "Teaching by Elder Jacob Saywell",
-      "uploaded": "2023-06-04T23:48:37Z",
       "source": "youtube"
     },
     {
@@ -3394,9 +3394,9 @@
       "title": "Live: Devotional Minsitry on Song of Songs 1 v1-8",
       "book": null,
       "preacher": "Jacob Saywell",
-      "preached": null,
+      "preached": "2023-05-21",
       "series": null,
-      "description": "Expository ministry preached by Jacob Saywell",
+      "description": "Expository ministry Song of Songs 1 v1-8, preached at Grace Chapel on Sunday the 21st May 2023, by Jacob Saywell.",
       "uploaded": "2023-05-21T23:46:11Z",
       "source": "youtube"
     },
@@ -5470,12 +5470,12 @@
     },
     {
       "id": "2HYrHACo95g",
-      "title": "Christmas Day message from Joshua Oliver on Luke2:29-32",
-      "book": "Joshua",
-      "preacher": null,
-      "preached": null,
+      "title": "Christmas Day message on Luke 2v29-32",
+      "book": "Luke",
+      "preacher": "Joshua Oliver",
+      "preached": "2021-12-25",
       "series": null,
-      "description": "",
+      "description": "Christmas Day Message on Luke 2v29-32, preached at Grace Chapel on 25th December 2021 by Joshua Oliver.\n\nGrace Chapel is a Reformed Baptist church in Folkestone, Kent.\n\nWebsite: https://gracechapel.uk\n\nSunday Services:\n11:00 am - Teaching Service\n4:00 pm - Gospel Service\n\nMeeting Type: Special",
       "uploaded": "2021-12-25T14:10:25Z",
       "source": "youtube"
     },
