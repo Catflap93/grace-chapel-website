@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06T07:01:41.891246+00:00",
+  "updated": "2026-11-07T06:46:32.748376+00:00",
   "sermons": [
     {
       "id": "mg2aFDnmMSQ",
@@ -1828,17 +1828,6 @@
       "source": "youtube"
     },
     {
-      "id": "DUi05ttnNSg",
-      "title": "Live: Gospel Hour, ministry on John 10:11 (Sunday 7th July 2024)",
-      "book": "John",
-      "preacher": null,
-      "preached": null,
-      "series": null,
-      "description": "Expository Gospel ministry on John 10:11, by Pastor Andrew Saywell.",
-      "uploaded": "2024-07-08T06:34:32Z",
-      "source": "youtube"
-    },
-    {
       "id": "S9KXjs2nTQo",
       "title": "Live: Expository Ministry on Revelations 1 (Sunday 7th July 2024)",
       "book": null,
@@ -1847,6 +1836,17 @@
       "series": null,
       "description": "Expository devotional ministry on Revelations 1, by Pastor Reuben Saywell.",
       "uploaded": "2024-07-07T23:40:01Z",
+      "source": "youtube"
+    },
+    {
+      "id": "DUi05ttnNSg",
+      "title": "John 10:11",
+      "book": "John",
+      "preacher": "Andrew Saywell",
+      "preached": "2024-07-07",
+      "series": null,
+      "description": "Expository Gospel ministry on John 10:11, preached at Grace Chapel on Sunday 7th July 2024, preached by Pastor Andrew Saywell.",
+      "uploaded": "2024-07-08T06:34:32Z",
       "source": "youtube"
     },
     {
@@ -2137,23 +2137,23 @@
     },
     {
       "id": "AamLeg6XiJ0",
-      "title": "2 Samuel 19:24-30 (Expository Ministry, Sunday 21st April 2024)",
+      "title": "2 Samuel 19:24-30",
       "book": "2 Samuel",
-      "preacher": null,
-      "preached": null,
+      "preacher": "Joshua Oliver",
+      "preached": "2024-04-21",
       "series": null,
-      "description": "Expository ministry on 2 Samuel 19:24-30, by Joshua Oliver. How to react and keep going even when God feels distant.",
+      "description": "Expository ministry on 2 Samuel 19:24-30. Preached at Grace Chapel on Sunday 21st of April 2024 by Joshua Oliver.\n\nHow to react and keep going even when God feels distant.\n\nMeeting Type: Teaching Service",
       "uploaded": "2024-04-23T19:07:36Z",
       "source": "youtube"
     },
     {
       "id": "-YxdKHhZfi0",
-      "title": "2 Samuel 9:1-13 (Gospel Ministry on Sunday 21st April 2024)",
+      "title": "2 Samuel 9:1-13",
       "book": "2 Samuel",
-      "preacher": null,
-      "preached": null,
+      "preacher": "Joshua Oliver",
+      "preached": "2024-04-21",
       "series": null,
-      "description": "Expository Gospel ministry on 2 Samuel 9:1-13, by Joshua Oliver. David's lovingkindness to Mephibosheth as a picture of God's lovingkindness to the sinner.",
+      "description": "Expository Gospel ministry on 2 Samuel 9:1-13. Preached at Grace Chapel on Sunday 21st of April 2024 by Joshua Oliver.\n\nDavid's lovingkindness to Mephibosheth as a picture of God's lovingkindness to the sinner.\n\nMeeting Type: Gospel Service",
       "uploaded": "2024-04-22T23:45:19Z",
       "source": "youtube"
     },
@@ -2302,12 +2302,12 @@
     },
     {
       "id": "W154GXgML4w",
-      "title": "Live: Bible Study by visiting preacher Artur Piotrowski",
-      "book": null,
-      "preacher": null,
-      "preached": null,
+      "title": "Ephesians 2v1-8",
+      "book": "Ephesians",
+      "preacher": "Artur Piotrowski",
+      "preached": "2024-03-12",
       "series": null,
-      "description": "Expository Bible study",
+      "description": "Expository Bible study on Ephesians 2v1-8. Preached at Grace Chapel on Tuesday 12th of March 2024 by Artur Piotrowski.\n\nMeeting Type: Bible Study",
       "uploaded": "2024-03-13T08:19:13Z",
       "source": "youtube"
     },
@@ -4776,17 +4776,6 @@
       "source": "youtube"
     },
     {
-      "id": "FIvj5boSBjo",
-      "title": "Isaiah 53:4-6",
-      "book": "Isaiah",
-      "preacher": "Joshua Oliver",
-      "preached": null,
-      "series": null,
-      "description": "Gospel message preached at Grace Chapel on 5th June by Joshua Oliver",
-      "uploaded": "2022-06-08T07:06:05Z",
-      "source": "youtube"
-    },
-    {
       "id": "D9mAF3xZPPA",
       "title": "Ephesians 2:18",
       "book": "Ephesians",
@@ -4795,6 +4784,17 @@
       "series": null,
       "description": "Teaching ministry preached at Grace Chapel on 5th June by Jacob Saywell",
       "uploaded": "2022-06-08T06:39:12Z",
+      "source": "youtube"
+    },
+    {
+      "id": "FIvj5boSBjo",
+      "title": "Isaiah 53:4-6",
+      "book": "Isaiah",
+      "preacher": "Joshua Oliver",
+      "preached": "2022-06-05",
+      "series": null,
+      "description": "Gospel message preached at Grace Chapel on 5th June 2022, by Joshua Oliver",
+      "uploaded": "2022-06-08T07:06:05Z",
       "source": "youtube"
     },
     {
