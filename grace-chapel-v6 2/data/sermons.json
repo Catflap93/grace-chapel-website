@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-09T07:14:51.212181+00:00",
+  "updated": "2026-11-10T06:56:07.387151+00:00",
   "sermons": [
     {
       "id": "JLjMS1gh3B0",
-      "title": "2 Kings 5v1-14 | The Futility of Trying to Save Ourselves | Joshua Oliver",
-      "book": "Joshua",
+      "title": "2 Kings 5v1-14 | The Futility of Trying to Save Ourselves",
+      "book": "2 Kings",
       "preacher": "Joshua Oliver",
       "preached": "2026-11-08",
       "series": null,
@@ -14,8 +14,8 @@
     },
     {
       "id": "lshR8lYghLA",
-      "title": "Ephesians 6v17b | Wielding the Sword of the Spirit | Joshua Oliver",
-      "book": "Joshua",
+      "title": "Ephesians 6v17b | Wielding the Sword of the Spirit",
+      "book": "Ephesians",
       "preacher": "Joshua Oliver",
       "preached": "2026-11-08",
       "series": null,
