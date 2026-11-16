@@ -1,55 +1,344 @@
+
 #!/usr/bin/env python3
-"""Fetch public channel videos using YouTube Data API v3. Requires YOUTUBE_API_KEY.
-For historical backfill, paginate playlistItems; quotas apply. Does not require channel login.
+"""Import public YouTube recordings for Grace Chapel.
+
+Requires YOUTUBE_API_KEY.
+Uses the public YouTube Data API v3.
+Preserves manually curated sermon overrides.
 """
-import os,json,re,urllib.parse,urllib.request,datetime,pathlib,sys
-ROOT=pathlib.Path(__file__).resolve().parents[1]
-KEY=os.getenv('YOUTUBE_API_KEY'); HANDLE=os.getenv('YOUTUBE_HANDLE','goodnews4folkestone')
-if not KEY: sys.exit('Set YOUTUBE_API_KEY (Google Cloud YouTube Data API v3).')
-def api(path,**params):
-    url='https://www.googleapis.com/youtube/v3/'+path+'?'+urllib.parse.urlencode(dict(params,key=KEY))
-    with urllib.request.urlopen(url,timeout=30) as r:return json.load(r)
-def classify(title,description):
-    text=title+' '+description
-    books=['1 Corinthians','2 Corinthians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','1 Peter','2 Peter','1 John','2 John','3 John','Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalms','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','Galatians','Ephesians','Philippians','Colossians','Titus','Philemon','Hebrews','James','Jude','Revelation']
-    book=next((b for b in books if re.search(r'(?<!\w)'+re.escape(b)+r'\b',title,re.I)),None)
-    if not book and re.search(r'Gospel of John',text,re.I):book='John'
-    # Capture named preacher after explicit attribution; otherwise leave blank.
-    match=re.search(r'\b(?:preached\s+by|preached\s+at\b[^.]{0,150}?\bby|preacher\s*:?\s*|speaker\s*:?\s*|(?:ministry|message|sermon|preaching)\s+by)\s+(?:(?:Pastor|Rev\.?|Elder|Deacon)\s+)?([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b',description,re.I)
-    preacher=match.group(1) if match else None
+
+import os
+import json
+import re
+import urllib.parse
+import urllib.request
+import datetime
+import pathlib
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+
+KEY = os.getenv("YOUTUBE_API_KEY")
+HANDLE = os.getenv("YOUTUBE_HANDLE", "goodnews4folkestone")
+
+if not KEY:
+    sys.exit("Set YOUTUBE_API_KEY (Google Cloud YouTube Data API v3).")
+
+
+def api(path, **params):
+    url = (
+        "https://www.googleapis.com/youtube/v3/"
+        + path
+        + "?"
+        + urllib.parse.urlencode(dict(params, key=KEY))
+    )
+
+    with urllib.request.urlopen(url, timeout=30) as response:
+        return json.load(response)
+
+
+BIBLE_BOOKS = [
+    "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+    "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+    "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+    "Ezra", "Nehemiah", "Esther", "Job", "Psalms",
+    "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah",
+    "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea",
+    "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum",
+    "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi",
+    "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
+    "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+    "Philippians", "Colossians", "1 Thessalonians",
+    "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus",
+    "Philemon", "Hebrews", "James", "1 Peter", "2 Peter",
+    "1 John", "2 John", "3 John", "Jude", "Revelation"
+]
+
+ALIASES = {
+    "Psalm": "Psalms",
+    "Song of Songs": "Song of Solomon",
+    "Canticles": "Song of Solomon"
+}
+
+MEETING_TYPES = {
+    "gospel": "Gospel",
+    "gospel service": "Gospel",
+    "teaching": "Teaching",
+    "teaching service": "Teaching",
+    "bible study": "Bible Study",
+    "bible studies": "Bible Study",
+    "bible study meeting": "Bible Study"
+}
+
+BOOK_NAMES = sorted(
+    BIBLE_BOOKS + list(ALIASES),
+    key=len,
+    reverse=True
+)
+
+BOOK_PATTERN = "|".join(
+    re.escape(name).replace(r"\ ", r"\s+")
+    for name in BOOK_NAMES
+)
+
+# Require a chapter number following a Bible book.
+# This prevents names such as Joshua Oliver or John Wycliffe
+# from being mistaken for Scripture references.
+REFERENCE_PATTERN = re.compile(
+    r"(?<!\w)(?P<book>" + BOOK_PATTERN + r")"
+    r"\s+(?P<chapter>\d{1,3})"
+    r"(?::\s*\d{1,3}(?:\s*[-–]\s*\d{1,3})?)?"
+    r"\b",
+    re.IGNORECASE
+)
+
+PASSAGE_FIELD = re.compile(
+    r"^\s*(?:Bible\s+Passage|Scripture(?:\s+Reading)?|"
+    r"Bible\s+Reading|Passage|Text)\s*:\s*(.+)$",
+    re.IGNORECASE | re.MULTILINE
+)
+
+MEETING_FIELD = re.compile(
+    r"^\s*(?:Meeting\s+Type|Service\s+Type)\s*:\s*(.+)$",
+    re.IGNORECASE | re.MULTILINE
+)
+
+
+def canonical_book(value):
+    for name in BOOK_NAMES:
+        if name.lower() == value.lower():
+            return ALIASES.get(name, name)
+    return None
+
+
+def extract_book(title, description):
+    # Explicit Scripture metadata takes priority.
+    for field in PASSAGE_FIELD.finditer(description):
+        match = REFERENCE_PATTERN.search(field.group(1))
+        if match:
+            return canonical_book(match.group("book"))
+
+    # Next, look for a genuine Scripture reference in the title.
+    match = REFERENCE_PATTERN.search(title)
+    if match:
+        return canonical_book(match.group("book"))
+
+    # Finally, examine description lines containing a
+    # Scripture reference, avoiding arbitrary name matching.
+    for line in description.splitlines():
+        match = REFERENCE_PATTERN.search(line)
+        if match:
+            return canonical_book(match.group("book"))
+
+    # Unknown is preferable to an incorrect classification.
+    return None
+
+
+def extract_meeting_type(title, description):
+    # Prefer explicitly labelled YouTube metadata.
+    match = MEETING_FIELD.search(description)
+
+    if match:
+        value = match.group(1).strip().lower()
+        value = re.sub(r"\s+", " ", value)
+        return MEETING_TYPES.get(value)
+
+    # Recognise unambiguous meeting labels in titles.
+    patterns = [
+        (r"\bBible\s+Study\b", "Bible Study"),
+        (r"\bGospel\s+Service\b", "Gospel"),
+        (r"\bTeaching\s+Service\b", "Teaching")
+    ]
+
+    for pattern, category in patterns:
+        if re.search(pattern, title, re.IGNORECASE):
+            return category
+
+    return None
+
+
+def extract_preacher(description):
+    # Preserve the existing explicit preacher attribution
+    # matching behaviour.
+    match = re.search(
+        r"\b(?:"
+        r"preached\s+by|"
+        r"preached\s+at\b[^.]{0,150}?\bby|"
+        r"preacher\s*:?\s*|"
+        r"speaker\s*:?\s*|"
+        r"(?:ministry|message|sermon|preaching)\s+by"
+        r")\s+"
+        r"(?:(?:Pastor|Rev\.?|Elder|Deacon)\s+)?"
+        r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b",
+        description,
+        re.IGNORECASE
+    )
+
+    preacher = match.group(1) if match else None
+
     if preacher:
-        preacher=re.split(r'\s+(?:on|at|and|the|with|from|in|for|Hymn)\b',preacher,maxsplit=1,flags=re.I)[0].strip()
-        preacher=re.sub(r'^(?:Pastor|Rev\.?|Ptr|Elder|Deacon)\s+','',preacher,flags=re.I)
-    dm=re.search(r'\b(?:Sunday\s+(?:the\s+)?)?(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d\d|19\d\d)\b',description,re.I)
-    preached=None
-    if dm:
-        try:preached=datetime.datetime.strptime(f'{dm.group(1)} {dm.group(2)} {dm.group(3)}','%d %B %Y').date().isoformat()
-        except ValueError:pass
-    return book,preacher,preached
-channel=api('channels',part='contentDetails',forHandle=HANDLE).get('items',[])
-if not channel:sys.exit('YouTube channel not found; check handle.')
-playlist=channel[0]['contentDetails']['relatedPlaylists']['uploads']
-ids=[];token=None
+        preacher = re.split(
+            r"\s+(?:on|at|and|the|with|from|in|for|Hymn)\b",
+            preacher,
+            maxsplit=1,
+            flags=re.IGNORECASE
+        )[0].strip()
+
+        preacher = re.sub(
+            r"^(?:Pastor|Rev\.?|Ptr|Elder|Deacon)\s+",
+            "",
+            preacher,
+            flags=re.IGNORECASE
+        )
+
+    return preacher
+
+
+def extract_preached_date(description):
+    match = re.search(
+        r"\b(?:Sunday\s+(?:the\s+)?)?"
+        r"(\d{1,2})(?:st|nd|rd|th)?\s+"
+        r"(?:of\s+)?"
+        r"(January|February|March|April|May|June|July|"
+        r"August|September|October|November|December)\s+"
+        r"(20\d\d|19\d\d)\b",
+        description,
+        re.IGNORECASE
+    )
+
+    if match:
+        try:
+            return datetime.datetime.strptime(
+                f"{match.group(1)} {match.group(2)} {match.group(3)}",
+                "%d %B %Y"
+            ).date().isoformat()
+        except ValueError:
+            pass
+
+    return None
+
+
+def classify(title, description):
+    return {
+        "book": extract_book(title, description),
+        "preacher": extract_preacher(description),
+        "preached": extract_preached_date(description),
+        "meeting_type": extract_meeting_type(title, description)
+    }
+
+
+# Find the channel's uploads playlist.
+channel = api(
+    "channels",
+    part="contentDetails",
+    forHandle=HANDLE
+).get("items", [])
+
+if not channel:
+    sys.exit("YouTube channel not found; check handle.")
+
+playlist = channel[0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
+ids = []
+token = None
+
+# Retrieve the complete list of uploaded video IDs.
 while True:
-    args=dict(part='contentDetails',playlistId=playlist,maxResults=50)
-    if token:args['pageToken']=token
-    page=api('playlistItems',**args)
-    ids += [i['contentDetails']['videoId'] for i in page.get('items',[]) if i.get('contentDetails',{}).get('videoId')]
-    token=page.get('nextPageToken')
-    if not token:break
-records=[]
-for offset in range(0,len(ids),50):
-    page=api('videos',part='snippet,status',id=','.join(ids[offset:offset+50]),maxResults=50)
-    for video in page.get('items',[]):
-        if video.get('status',{}).get('privacyStatus')!='public':continue
-        s=video['snippet'];title=s.get('title','Untitled sermon');description=s.get('description','')
-        book,preacher,preached=classify(title,description)
-        records.append(dict(id=video['id'],title=title,book=book,preacher=preacher,preached=preached,series=None,description=description,uploaded=s.get('publishedAt',''),source='youtube'))
-# Preserve editor-curated overrides (keyed by YouTube ID).
-overrides_file=ROOT/'data'/'sermon-overrides.json'
+    args = {
+        "part": "contentDetails",
+        "playlistId": playlist,
+        "maxResults": 50
+    }
+
+    if token:
+        args["pageToken"] = token
+
+    page = api("playlistItems", **args)
+
+    ids.extend(
+        item["contentDetails"]["videoId"]
+        for item in page.get("items", [])
+        if item.get("contentDetails", {}).get("videoId")
+    )
+
+    token = page.get("nextPageToken")
+
+    if not token:
+        break
+
+
+records = []
+
+# Retrieve video details in batches of 50.
+for offset in range(0, len(ids), 50):
+    page = api(
+        "videos",
+        part="snippet,status",
+        id=",".join(ids[offset:offset + 50]),
+        maxResults=50
+    )
+
+    for video in page.get("items", []):
+        if video.get("status", {}).get("privacyStatus") != "public":
+            continue
+
+        snippet = video["snippet"]
+
+        title = snippet.get("title", "Untitled sermon")
+        description = snippet.get("description", "")
+
+        metadata = classify(title, description)
+
+        records.append({
+            "id": video["id"],
+            "title": title,
+            "book": metadata["book"],
+            "preacher": metadata["preacher"],
+            "preached": metadata["preached"],
+            "meeting_type": metadata["meeting_type"],
+            "series": None,
+            "description": description,
+            "uploaded": snippet.get("publishedAt", ""),
+            "source": "youtube"
+        })
+
+
+# Preserve editor-curated overrides.
+overrides_file = ROOT / "data" / "sermon-overrides.json"
+
 if overrides_file.exists():
-    overrides=json.loads(overrides_file.read_text())
-    for item in records:item.update(overrides.get(item['id'],{}))
-records.sort(key=lambda x:x.get('preached') or x.get('uploaded') or '',reverse=True)
-(ROOT/'data'/'sermons.json').write_text(json.dumps({'updated':datetime.datetime.now(datetime.timezone.utc).isoformat(),'sermons':records},indent=2,ensure_ascii=False)+'\n')
-print('Saved',len(records),'public videos')
+    overrides = json.loads(
+        overrides_file.read_text(encoding="utf-8")
+    )
+
+    for item in records:
+        item.update(overrides.get(item["id"], {}))
+
+
+# Newest preaching dates first.
+records.sort(
+    key=lambda item: (
+        item.get("preached") or item.get("uploaded") or ""
+    ),
+    reverse=True
+)
+
+
+# Save the catalogue.
+output_file = ROOT / "data" / "sermons.json"
+
+output_file.write_text(
+    json.dumps(
+        {
+            "updated": datetime.datetime.now(
+                datetime.timezone.utc
+            ).isoformat(),
+            "sermons": records
+        },
+        indent=2,
+        ensure_ascii=False
+    ) + "\n",
+    encoding="utf-8"
+)
+
+print("Saved", len(records), "public videos")
