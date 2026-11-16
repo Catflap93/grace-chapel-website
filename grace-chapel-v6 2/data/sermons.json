@@ -1,6 +1,28 @@
 {
-  "updated": "2026-11-15T06:53:48.037444+00:00",
+  "updated": "2026-11-16T08:28:28.228079+00:00",
   "sermons": [
+    {
+      "id": "IEDIK0buHqE",
+      "title": "Ephesians 6v18 | Praying Always | Jacob Saywell",
+      "book": "Ephesians",
+      "preacher": "Jacob Saywell",
+      "preached": "2026-11-15",
+      "series": null,
+      "description": "Bible Passage: Ephesians 6v18\nSermon Title: Praying Always\nPreacher: Jacob Saywell.\nDate Preached: 15th November 2026\n\nA Christian is to have a constant attitude of prayer and trust in God. The Lord freely invites us to pray, so that we may remember that He is the One who helps us, for by ourselves we can do nothing. As such He invites us to pray for all things, at any time, with constancy, and to pray for all the saints.\n\nMeeting Type: Teaching Service\n\nGrace Chapel is a Reformed Baptist church in Folkestone, Kent.\n\nWebsite: https://gracechapel.uk\n\nSunday Services:\n11:00 am – Teaching Service\n4:00 pm – Gospel Service",
+      "uploaded": "2026-11-15T20:42:44Z",
+      "source": "youtube"
+    },
+    {
+      "id": "0o4IshIoqgc",
+      "title": "Luke 9v28-36 | The Glory on the Mountain | Jacob Saywell",
+      "book": "Luke",
+      "preacher": "Jacob Saywell",
+      "preached": "2026-11-15",
+      "series": null,
+      "description": "Bible Passage: Luke 9v28-36\nSermon Title: The Glory on the Mountain\nPreacher: Jacob Saywell.\nDate Preached: 15th November 2026\n\nThe Lord Jesus Christ was not just an ordinary man. He was not just a great teacher. He is truly the Son of God. Three privileged men get a sight of the glory of God that Christ had. Two prominent men proclaim the unique character of the Lord Jesus. But Christ is the pre-eminent man. Will you be amongst the privileged who see Him in glory?\n\nMeeting Type: Gospel Service\n\nGrace Chapel is a Reformed Baptist church in Folkestone, Kent.\n\nWebsite: https://gracechapel.uk\n\nSunday Services:\n11:00 am – Teaching Service\n4:00 pm – Gospel Service",
+      "uploaded": "2026-11-15T20:00:29Z",
+      "source": "youtube"
+    },
     {
       "id": "JLjMS1gh3B0",
       "title": "2 Kings 5v1-14 | The Futility of Trying to Save Ourselves",
@@ -1719,12 +1741,12 @@
     },
     {
       "id": "m83p5wCvQ0I",
-      "title": "Live: Thanksgiving Service (Sunday 18th August 2024)",
-      "book": null,
-      "preacher": null,
-      "preached": null,
+      "title": "Live: Thanksgiving Service on Matthew 25v21",
+      "book": "Matthew",
+      "preacher": "Andrew Saywell",
+      "preached": "2024-08-18",
       "series": null,
-      "description": "Special thanksgiving and worship service. Text: Matthew 25:21",
+      "description": "Special thanksgiving and worship service on Matthew 25:21. Preached at Grace Chapel on Sunday 18th August 2024, by Pastor Andrew Saywell.",
       "uploaded": "2024-08-19T00:08:53Z",
       "source": "youtube"
     },
@@ -2378,17 +2400,6 @@
       "source": "youtube"
     },
     {
-      "id": "BXI2pTjCGkg",
-      "title": "I Corinthians 16: 15-18 The marks of love in the church part 1",
-      "book": null,
-      "preacher": null,
-      "preached": null,
-      "series": null,
-      "description": "Pastor Andrew Saywell at Grace Chapel Folkestone January 2024",
-      "uploaded": "2024-02-25T22:10:37Z",
-      "source": "youtube"
-    },
-    {
       "id": "X000EJ0VPZE",
       "title": "The Genevan Triumvirate",
       "book": null,
@@ -2397,6 +2408,17 @@
       "series": null,
       "description": "Historical lecture given at Grace Chapel Folkestone by Pastor Andrew Saywell",
       "uploaded": "2024-02-21T11:24:44Z",
+      "source": "youtube"
+    },
+    {
+      "id": "BXI2pTjCGkg",
+      "title": "1 Corinthians 16v15-18 | The marks of love in the church part 1",
+      "book": "1 Corinthians",
+      "preacher": "Andrew Saywell",
+      "preached": "2024-02-20",
+      "series": null,
+      "description": "Expository Bible Study on 1 Corinthians 16v15-18. Preached at Grace Chapel, on Tuesday 20th February 2024, by Pastor Andrew Saywell.",
+      "uploaded": "2024-02-25T22:10:37Z",
       "source": "youtube"
     },
     {
@@ -3060,17 +3082,6 @@
       "source": "youtube"
     },
     {
-      "id": "50pmP1fCk_Q",
-      "title": "Live: Gospel Ministry",
-      "book": null,
-      "preacher": null,
-      "preached": null,
-      "series": null,
-      "description": "John 6:39-40",
-      "uploaded": "2023-08-21T06:33:19Z",
-      "source": "youtube"
-    },
-    {
       "id": "ov9JEwAiuPs",
       "title": "Live: Pastoral Ministry 1 John 2:1 (Sunday 20th August 2023)",
       "book": "1 John",
@@ -3079,6 +3090,17 @@
       "series": null,
       "description": "Expository Pastoral Ministry by Pastor Andrew Saywell - 1 John 2:1",
       "uploaded": "2023-08-20T23:59:19Z",
+      "source": "youtube"
+    },
+    {
+      "id": "50pmP1fCk_Q",
+      "title": "John 6v39-40",
+      "book": "John",
+      "preacher": "Andrew Saywell",
+      "preached": "2023-08-20",
+      "series": null,
+      "description": "Expository Gospel ministry on John 6v39-40, preached at Grace Chapel on Sunday the 20th August 2023. Preacher: Pastor Andrew Saywell.",
+      "uploaded": "2023-08-21T06:33:19Z",
       "source": "youtube"
     },
     {
@@ -3093,17 +3115,6 @@
       "source": "youtube"
     },
     {
-      "id": "QeVVe5B3IWA",
-      "title": "Gospel Ministery",
-      "book": null,
-      "preacher": null,
-      "preached": null,
-      "series": null,
-      "description": "Gospel ministery by pastor Andrew Saywell On John 6 v 37-39",
-      "uploaded": "2023-08-14T06:37:30Z",
-      "source": "youtube"
-    },
-    {
       "id": "vbHALkGu1B8",
       "title": "Live: Pastoral Ministry on 1 John 1:8-10 (Sunday 13th August 2023)",
       "book": "1 John",
@@ -3112,6 +3123,17 @@
       "series": null,
       "description": "Expository ministry on 1 John 1:8-10 by Pastor Andrew Saywell",
       "uploaded": "2023-08-13T23:36:12Z",
+      "source": "youtube"
+    },
+    {
+      "id": "QeVVe5B3IWA",
+      "title": "John 6v37-39",
+      "book": "John",
+      "preacher": "Andrew Saywell",
+      "preached": "2023-08-13",
+      "series": null,
+      "description": "Expository Gospel ministry on John 6v37-39, preached at Grace Chapel on Sunday the 13th August 2023. Preacher: Pastor Andrew Saywell.",
+      "uploaded": "2023-08-14T06:37:30Z",
       "source": "youtube"
     },
     {
@@ -3226,12 +3248,12 @@
     },
     {
       "id": "q8JuPaJpC70",
-      "title": "Live: Bible Study on 1 Cor. 15:29-32 (Tues. 18th July 2023)",
-      "book": null,
-      "preacher": null,
-      "preached": null,
+      "title": "1 Corinthians 15v29-32",
+      "book": "1 Corinthians",
+      "preacher": "Andrew Saywell",
+      "preached": "2023-07-18",
       "series": null,
-      "description": "Expository ministry, continuing our series in 1 Corinthians, by Pastor Andrew Saywell",
+      "description": "Expository Bible Study on 1 Corinthians 15v27-32, preached at Grace Chapel on Tuesday the 18th July 2023. Preacher: Pastor Andrew Saywell.",
       "uploaded": "2023-07-19T07:53:07Z",
       "source": "youtube"
     },
@@ -3676,17 +3698,6 @@
       "source": "youtube"
     },
     {
-      "id": "mf2cs8NJxdc",
-      "title": "The Grace of God Towards Believers",
-      "book": null,
-      "preacher": "Jacob Saywell",
-      "preached": null,
-      "series": null,
-      "description": "Doctrinal ministry on Genesis 20 v10-13, preached at Grace Chapel by Jacob Saywell",
-      "uploaded": "2023-03-20T00:42:25Z",
-      "source": "youtube"
-    },
-    {
       "id": "jI0Wx2GkZcw",
       "title": "Live: Bible Study on 2 Corinthians 1:1 (Tuesday 19th March 2023)",
       "book": "2 Corinthians",
@@ -3695,6 +3706,17 @@
       "series": null,
       "description": "Expository Bible Study on 2 Corinthians 1:1 (Tuesday 19th March 2023), by Pastor Andrew Saywell",
       "uploaded": "2024-03-20T08:54:30Z",
+      "source": "youtube"
+    },
+    {
+      "id": "mf2cs8NJxdc",
+      "title": "Genesis 20v10-13 | The Grace of God Towards Believers",
+      "book": "Genesis",
+      "preacher": "Jacob Saywell",
+      "preached": "2023-03-19",
+      "series": null,
+      "description": "Expository ministry on Genesis 20v10-13, preached at Grace Chapel on Sunday the 19th March 2023. Preacher: Jacob Saywell",
+      "uploaded": "2023-03-20T00:42:25Z",
       "source": "youtube"
     },
     {
