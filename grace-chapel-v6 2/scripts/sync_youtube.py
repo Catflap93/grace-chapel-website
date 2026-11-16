@@ -81,13 +81,22 @@ BOOK_PATTERN = "|".join(
     for name in BOOK_NAMES
 )
 
-# Require a chapter number following a Bible book.
-# This prevents names such as Joshua Oliver or John Wycliffe
-# from being mistaken for Scripture references.
+# Recognise references such as:
+# Ephesians 6v18
+# Luke 9v28-36
+# 2 Kings 5v1-14
+# John 18v28-19v12
+# Ephesians 6:18
+# Psalm 23
+#
+# A chapter number is required, preventing names such
+# as Joshua Oliver or John Wycliffe from matching.
+
 REFERENCE_PATTERN = re.compile(
     r"(?<!\w)(?P<book>" + BOOK_PATTERN + r")"
     r"\s+(?P<chapter>\d{1,3})"
-    r"(?::\s*\d{1,3}(?:\s*[-–]\s*\d{1,3})?)?"
+    r"(?:\s*(?:[:vV]|\bverses?\b)\s*\d{1,3})?"
+    r"(?:\s*[-–]\s*(?:\d{1,3}\s*[:vV]\s*)?\d{1,3})?"
     r"\b",
     re.IGNORECASE
 )
@@ -108,42 +117,53 @@ def canonical_book(value):
     for name in BOOK_NAMES:
         if name.lower() == value.lower():
             return ALIASES.get(name, name)
+
     return None
 
 
 def extract_book(title, description):
-    # Explicit Scripture metadata takes priority.
+    # Explicit Bible Passage or Scripture metadata
+    # takes priority over the video title.
+
     for field in PASSAGE_FIELD.finditer(description):
         match = REFERENCE_PATTERN.search(field.group(1))
+
         if match:
             return canonical_book(match.group("book"))
 
-    # Next, look for a genuine Scripture reference in the title.
+    # Check the title for a proper Scripture reference.
+
     match = REFERENCE_PATTERN.search(title)
+
     if match:
         return canonical_book(match.group("book"))
 
-    # Finally, examine description lines containing a
-    # Scripture reference, avoiding arbitrary name matching.
+    # Finally, examine description lines for references.
+
     for line in description.splitlines():
         match = REFERENCE_PATTERN.search(line)
+
         if match:
             return canonical_book(match.group("book"))
 
-    # Unknown is preferable to an incorrect classification.
+    # Do not guess if no valid reference is found.
+
     return None
 
 
 def extract_meeting_type(title, description):
     # Prefer explicitly labelled YouTube metadata.
+
     match = MEETING_FIELD.search(description)
 
     if match:
         value = match.group(1).strip().lower()
         value = re.sub(r"\s+", " ", value)
+
         return MEETING_TYPES.get(value)
 
-    # Recognise unambiguous meeting labels in titles.
+    # Recognise clear meeting labels in video titles.
+
     patterns = [
         (r"\bBible\s+Study\b", "Bible Study"),
         (r"\bGospel\s+Service\b", "Gospel"),
@@ -158,8 +178,8 @@ def extract_meeting_type(title, description):
 
 
 def extract_preacher(description):
-    # Preserve the existing explicit preacher attribution
-    # matching behaviour.
+    # Recognise explicit preacher attributions.
+
     match = re.search(
         r"\b(?:"
         r"preached\s+by|"
@@ -212,6 +232,7 @@ def extract_preached_date(description):
                 f"{match.group(1)} {match.group(2)} {match.group(3)}",
                 "%d %B %Y"
             ).date().isoformat()
+
         except ValueError:
             pass
 
@@ -227,7 +248,8 @@ def classify(title, description):
     }
 
 
-# Find the channel's uploads playlist.
+# Find the YouTube channel's uploads playlist.
+
 channel = api(
     "channels",
     part="contentDetails",
@@ -239,10 +261,12 @@ if not channel:
 
 playlist = channel[0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
+
+# Retrieve every uploaded video ID.
+
 ids = []
 token = None
 
-# Retrieve the complete list of uploaded video IDs.
 while True:
     args = {
         "part": "contentDetails",
@@ -267,9 +291,10 @@ while True:
         break
 
 
+# Retrieve details for public videos.
+
 records = []
 
-# Retrieve video details in batches of 50.
 for offset in range(0, len(ids), 50):
     page = api(
         "videos",
@@ -304,6 +329,8 @@ for offset in range(0, len(ids), 50):
 
 
 # Preserve editor-curated overrides.
+# These take priority over automatically detected metadata.
+
 overrides_file = ROOT / "data" / "sermon-overrides.json"
 
 if overrides_file.exists():
@@ -315,7 +342,8 @@ if overrides_file.exists():
         item.update(overrides.get(item["id"], {}))
 
 
-# Newest preaching dates first.
+# Sort recordings by preaching date.
+
 records.sort(
     key=lambda item: (
         item.get("preached") or item.get("uploaded") or ""
@@ -324,7 +352,8 @@ records.sort(
 )
 
 
-# Save the catalogue.
+# Write the updated sermon catalogue.
+
 output_file = ROOT / "data" / "sermons.json"
 
 output_file.write_text(
