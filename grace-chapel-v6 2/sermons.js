@@ -3,6 +3,8 @@
   const $ = id => document.getElementById(id);
   let all = [];
 
+  const meetingTypes = ['Gospel', 'Teaching', 'Bible Study'];
+
   const bibleBooks = [
     'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy',
     'Joshua', 'Judges', 'Ruth', '1 Samuel', '2 Samuel',
@@ -42,6 +44,18 @@
   const thumb = id =>
     `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
 
+  // Accept either meeting_type or meetingType from the catalogue.
+  // Do not guess a category when one has not been supplied.
+  const meetingType = s => {
+    const raw = String(s.meeting_type || s.meetingType || '')
+      .trim()
+      .toLowerCase();
+
+    return meetingTypes.find(
+      type => type.toLowerCase() === raw
+    ) || '';
+  };
+
   const card = s => `
     <article class="library-card">
       <button
@@ -55,7 +69,13 @@
       </button>
 
       <div class="sermon-card-body">
-        <p class="eyebrow">${escape(s.book || 'SERMON')}</p>
+        <p class="eyebrow">
+          ${escape(
+            [s.book, meetingType(s)].filter(Boolean).join(' · ')
+            || 'SERMON'
+          )}
+        </p>
+
         <h3>${escape(s.title)}</h3>
 
         <p class="sermon-meta">
@@ -82,6 +102,7 @@
     $('dialog-title').textContent = s.title;
 
     $('dialog-meta').textContent = [
+      meetingType(s),
       s.preacher,
       date(s.preached)
     ].filter(Boolean).join(' · ');
@@ -113,16 +134,19 @@
     const q = $('sermon-search').value.trim().toLowerCase();
     const b = $('book-filter').value;
     const p = $('preacher-filter').value;
+    const t = $('meeting-filter')?.value || '';
 
     let rows = all.filter(s =>
       (!b || s.book === b) &&
       (!p || s.preacher === p) &&
+      (!t || meetingType(s) === t) &&
       [
         s.title,
         s.book,
         s.preacher,
         s.description,
-        s.series
+        s.series,
+        meetingType(s)
       ].join(' ').toLowerCase().includes(q)
     );
 
@@ -185,9 +209,13 @@
     'sermon-search',
     'book-filter',
     'preacher-filter',
+    'meeting-filter',
     'sermon-sort'
   ].forEach(id => {
-    $(id).addEventListener(
+    const element = $(id);
+    if (!element) return;
+
+    element.addEventListener(
       id === 'sermon-search' ? 'input' : 'change',
       render
     );
@@ -220,8 +248,13 @@
             <h3>${escape(all[0].title)}</h3>
 
             <p>
-              ${escape(all[0].preacher || '')}
-              · ${date(all[0].preached)}
+              ${escape(
+                [
+                  meetingType(all[0]),
+                  all[0].preacher,
+                  date(all[0].preached)
+                ].filter(Boolean).join(' · ')
+              )}
             </p>
 
             <p>
