@@ -81,22 +81,25 @@ BOOK_PATTERN = "|".join(
     for name in BOOK_NAMES
 )
 
-# Recognise references such as:
+# Recognises:
 # Ephesians 6v18
+# Ephesians 6v17a
+# Ephesians 6v17b
 # Luke 9v28-36
 # 2 Kings 5v1-14
 # John 18v28-19v12
 # Ephesians 6:18
 # Psalm 23
 #
-# A chapter number is required, preventing names such
-# as Joshua Oliver or John Wycliffe from matching.
+# A chapter number is required so names such as
+# Joshua Oliver and John Wycliffe are not mistaken
+# for Bible references.
 
 REFERENCE_PATTERN = re.compile(
     r"(?<!\w)(?P<book>" + BOOK_PATTERN + r")"
     r"\s+(?P<chapter>\d{1,3})"
-    r"(?:\s*(?:[:vV]|\bverses?\b)\s*\d{1,3})?"
-    r"(?:\s*[-–]\s*(?:\d{1,3}\s*[:vV]\s*)?\d{1,3})?"
+    r"(?:\s*(?:[:vV]|\bverses?\b)\s*\d{1,3}[a-z]?)?"
+    r"(?:\s*[-–]\s*(?:\d{1,3}\s*[:vV]\s*)?\d{1,3}[a-z]?)?"
     r"\b",
     re.IGNORECASE
 )
@@ -122,8 +125,7 @@ def canonical_book(value):
 
 
 def extract_book(title, description):
-    # Explicit Bible Passage or Scripture metadata
-    # takes priority over the video title.
+    # Explicit Scripture metadata takes priority.
 
     for field in PASSAGE_FIELD.finditer(description):
         match = REFERENCE_PATTERN.search(field.group(1))
@@ -131,12 +133,252 @@ def extract_book(title, description):
         if match:
             return canonical_book(match.group("book"))
 
-    # Check the title for a proper Scripture reference.
+    # Look for a Scripture reference in the title.
 
     match = REFERENCE_PATTERN.search(title)
 
     if match:
         return canonical_book(match.group("book"))
+
+    # Finally, check the description.
+
+    for line in description.splitlines():
+        match = REFERENCE_PATTERN.search(line)
+
+        if match:
+            return canonical_book(match.group("book"))
+
+    # Avoid guessing when no reference is found.
+
+    return None
+
+
+def extract_meeting_type(title, description):
+    # Prefer explicitly labelled metadata.
+
+    match = MEETING_FIELD.search(description)
+
+    if match:
+        value = match.group(1).strip().lower()
+        value = re.sub(r"\s+", " ", value)
+
+        # Remove punctuation such as "Teaching Service."
+        value = value.rstrip(".,;:! ")
+
+        category = MEETING_TYPES.get(value)
+
+        if category:
+            return category
+
+    # Recognise unambiguous service labels in titles.
+
+    patterns = [
+        (r"\bBible\s+Study\b", "Bible Study"),
+        (r"\bGospel\s+Service\b", "Gospel"),
+        (r"\bTeaching\s+Service\b", "Teaching")
+    ]
+
+    for pattern, category in patterns:
+        if re.search(pattern, title, re.IGNORECASE):
+            return category
+
+    return None
+
+
+def extract_preacher(description):
+    # Preserve existing preacher attribution detection.
+
+    match = re.search(
+        r"\b(?:"
+        r"preached\s+by|"
+        r"preached\s+at\b[^.]{0,150}?\bby|"
+        r"preacher\s*:?\s*|"
+        r"speaker\s*:?\s*|"
+        r"(?:ministry|message|sermon|preaching)\s+by"
+        r")\s+"
+        r"(?:(?:Pastor|Rev\.?|Elder|Deacon)\s+)?"
+        r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b",
+        description,
+        re.IGNORECASE
+    )
+
+    preacher = match.group(1) if match else None
+
+    if preacher:
+        preacher = re.split(
+            r"\s+(?:on|at|and|the|with|from|in|for|Hymn)\b",
+            preacher,
+            maxsplit=1,
+            flags=re.IGNORECASE
+        )[0].strip()
+
+        preacher = re.sub(
+            r"^(?:Pastor|Rev\.?|Ptr|Elder|Deacon)\s+",
+            "",
+            preacher,
+            flags=re.IGNORECASE
+        )
+
+    return preacher
+
+
+def extract_preached_date(description):
+    match = re.search(
+        r"\b(?:Sunday\s+(?:the\s+)?)?"
+        r"(\d{1,2})(?:st|nd|rd|th)?\s+"
+        r"(?:of\s+)?"
+        r"(January|February|March|April|May|June|July|"
+        r"August|September|October|November|December)\s+"
+        r"(20\d\d|19\d\d)\b",
+        description,
+        re.IGNORECASE
+    )
+
+    if match:
+        try:
+            return datetime.datetime.strptime(
+                f"{match.group(1)} {match.group(2)} {match.group(3)}",
+                "%d %B %Y"
+            ).date().isoformat()
+
+        except ValueError:
+            pass
+
+    return None
+
+
+def classify(title, description):
+    return {
+        "book": extract_book(title, description),
+        "preacher": extract_preacher(description),
+        "preached": extract_preached_date(description),
+        "meeting_type": extract_meeting_type(title, description)
+    }
+
+
+# Find the YouTube channel's uploads playlist.
+
+channel = api(
+    "channels",
+    part="contentDetails",
+    forHandle=HANDLE
+).get("items", [])
+
+if not channel:
+    sys.exit("YouTube channel not found; check handle.")
+
+playlist = channel[0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
+
+# Retrieve all uploaded video IDs.
+
+ids = []
+token = None
+
+while True:
+    args = {
+        "part": "contentDetails",
+        "playlistId": playlist,
+        "maxResults": 50
+    }
+
+    if token:
+        args["pageToken"] = token
+
+    page = api("playlistItems", **args)
+
+    ids.extend(
+        item["contentDetails"]["videoId"]
+        for item in page.get("items", [])
+        if item.get("contentDetails", {}).get("videoId")
+    )
+
+    token = page.get("nextPageToken")
+
+    if not token:
+        break
+
+
+# Retrieve video details in batches of 50.
+
+records = []
+
+for offset in range(0, len(ids), 50):
+    page = api(
+        "videos",
+        part="snippet,status",
+        id=",".join(ids[offset:offset + 50]),
+        maxResults=50
+    )
+
+    for video in page.get("items", []):
+        if video.get("status", {}).get("privacyStatus") != "public":
+            continue
+
+        snippet = video["snippet"]
+
+        title = snippet.get("title", "Untitled sermon")
+        description = snippet.get("description", "")
+
+        metadata = classify(title, description)
+
+        records.append({
+            "id": video["id"],
+            "title": title,
+            "book": metadata["book"],
+            "preacher": metadata["preacher"],
+            "preached": metadata["preached"],
+            "meeting_type": metadata["meeting_type"],
+            "series": None,
+            "description": description,
+            "uploaded": snippet.get("publishedAt", ""),
+            "source": "youtube"
+        })
+
+
+# Preserve editor-curated overrides.
+# Overrides take priority over automatically detected data.
+
+overrides_file = ROOT / "data" / "sermon-overrides.json"
+
+if overrides_file.exists():
+    overrides = json.loads(
+        overrides_file.read_text(encoding="utf-8")
+    )
+
+    for item in records:
+        item.update(overrides.get(item["id"], {}))
+
+
+# Sort recordings by preaching date.
+
+records.sort(
+    key=lambda item: (
+        item.get("preached") or item.get("uploaded") or ""
+    ),
+    reverse=True
+)
+
+
+# Write the updated sermon catalogue.
+
+output_file = ROOT / "data" / "sermons.json"
+
+output_file.write_text(
+    json.dumps(
+        {
+            "updated": datetime.datetime.now(
+                datetime.timezone.utc
+            ).isoformat(),
+            "sermons": records
+        },
+        indent=2,
+        ensure_ascii=False
+    ) + "\n",
+    encoding="utf-8"
+)
+
+print("Saved", len(records), "public videos")
 
     # Finally, examine description lines for references.
 
