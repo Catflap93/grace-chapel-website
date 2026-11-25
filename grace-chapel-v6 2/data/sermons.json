@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T07:04:12.102987+00:00",
+  "updated": "2026-11-25T07:08:22.835765+00:00",
   "sermons": [
     {
       "id": "4PkaFYhPwR0",
@@ -1819,9 +1819,9 @@
       "book": "Romans",
       "preacher": "Andrew Saywell",
       "preached": null,
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on Romans 10:9, preached by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on Romans 10:9, preached by Pastor Andrew Saywell",
       "uploaded": "2024-09-02T06:29:54Z",
       "source": "youtube"
     },
@@ -1951,9 +1951,9 @@
       "book": "1 John",
       "preacher": "Andrew Saywell",
       "preached": "2024-08-11",
-      "meeting_type": null,
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Live: Expository Pastoral ministry (Sunday 11th August 2024), preaching by Pastor Andrew Saywell",
+      "description": "Meeting Type: Teaching Service\n\nLive: Expository Pastoral ministry (Sunday 11th August 2024), preaching by Pastor Andrew Saywell",
       "uploaded": "2024-08-11T23:41:18Z",
       "source": "youtube"
     },
@@ -1987,9 +1987,9 @@
       "book": "1 John",
       "preacher": "Andrew Saywell",
       "preached": "2024-08-04",
-      "meeting_type": null,
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Live: Expository ministry (Sunday 4th August 2024), preaching by Pastor Andrew Saywell",
+      "description": "Meeting Type: Teaching Service\n\nLive: Expository ministry (Sunday 4th August 2024), preaching by Pastor Andrew Saywell",
       "uploaded": "2024-08-04T23:44:37Z",
       "source": "youtube"
     },
@@ -4191,13 +4191,13 @@
     },
     {
       "id": "XqOnpAODOdg",
-      "title": "Live: Pastoral Ministry 19th February 2023",
+      "title": "Live: Pastoral Ministry on Titus 1v5-8 (19th February 2023)",
       "book": "Titus",
-      "preacher": null,
-      "preached": null,
-      "meeting_type": null,
+      "preacher": "Andrew Saywell",
+      "preached": "2023-02-19",
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Titus 1 v5-8",
+      "description": "Meeting Type: Teaching Service\n\nExpository Ministry on Titus 1:5-8, preached at Grace Chapel on Sunday the 19th of February 2023, preached by Pastor Andrew Saywell.",
       "uploaded": "2023-02-20T00:34:19Z",
       "source": "youtube"
     },
@@ -5270,18 +5270,6 @@
       "source": "youtube"
     },
     {
-      "id": "D9mAF3xZPPA",
-      "title": "Ephesians 2:18",
-      "book": "Ephesians",
-      "preacher": "Jacob Saywell",
-      "preached": null,
-      "meeting_type": null,
-      "series": null,
-      "description": "Teaching ministry preached at Grace Chapel on 5th June by Jacob Saywell",
-      "uploaded": "2022-06-08T06:39:12Z",
-      "source": "youtube"
-    },
-    {
       "id": "FIvj5boSBjo",
       "title": "Isaiah 53:4-6",
       "book": "Isaiah",
@@ -5291,6 +5279,18 @@
       "series": null,
       "description": "Meeting Type: Gospel Service\nGospel message preached at Grace Chapel on 5th June 2022, by Joshua Oliver",
       "uploaded": "2022-06-08T07:06:05Z",
+      "source": "youtube"
+    },
+    {
+      "id": "D9mAF3xZPPA",
+      "title": "Ephesians 2:18",
+      "book": "Ephesians",
+      "preacher": "Jacob Saywell",
+      "preached": "2022-06-05",
+      "meeting_type": "Teaching",
+      "series": null,
+      "description": "Meeting Type: Teaching Service\n\nTeaching ministry preached at Grace Chapel on Sunday 5th June 2022, preached by Jacob Saywell",
+      "uploaded": "2022-06-08T06:39:12Z",
       "source": "youtube"
     },
     {
@@ -5874,10 +5874,10 @@
       "title": "Philippians 1:21",
       "book": "Philippians",
       "preacher": "Reuben Saywell",
-      "preached": null,
-      "meeting_type": null,
+      "preached": "2022-02-06",
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel message preached at Grace Chapel on 6th Feb 2022 by Reuben Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel message preached at Grace Chapel on 6th February 2022 by Reuben Saywell",
       "uploaded": "2022-02-06T20:53:39Z",
       "source": "youtube"
     },
@@ -6019,9 +6019,9 @@
       "book": "1 Timothy",
       "preacher": null,
       "preached": null,
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel message preached at Grace Chapel on 19th Dec 2021",
+      "description": "Meeting Type: Gospel Service\n\nGospel message preached at Grace Chapel on 19th Dec 2021",
       "uploaded": "2021-12-27T11:11:01Z",
       "source": "youtube"
     },
@@ -6739,9 +6739,9 @@
       "book": "1 Timothy",
       "preacher": "Andrew Saywell",
       "preached": null,
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel message preached at Grace Chapel on 20th June by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel message preached at Grace Chapel on 20th June by Pastor Andrew Saywell",
       "uploaded": "2021-06-20T22:19:51Z",
       "source": "youtube"
     },
@@ -7121,11 +7121,11 @@
       "id": "2-Jz-akzJ5Y",
       "title": "Romans 10 v9",
       "book": "Romans",
-      "preacher": null,
+      "preacher": "Andrew Saywell",
       "preached": "2021-04-04",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel message preached at Grace Chapel on 4th April 2021",
+      "description": "Meeting Type: Gospel Service\n\nGospel message preached at Grace Chapel on 4th April 2021, preached by Pastor Andrew Saywell",
       "uploaded": "2021-04-04T21:05:51Z",
       "source": "youtube"
     },
@@ -7231,9 +7231,9 @@
       "book": "Colossians",
       "preacher": null,
       "preached": "2021-03-14",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel ministry from Grace Chapel 14th March 2021",
+      "description": "Meeting Type: Gospel Service\n\nGospel ministry from Grace Chapel 14th March 2021",
       "uploaded": "2021-03-15T00:05:57Z",
       "source": "youtube"
     },
