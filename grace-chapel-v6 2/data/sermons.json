@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T07:08:22.835765+00:00",
+  "updated": "2026-11-26T07:06:45.640378+00:00",
   "sermons": [
     {
       "id": "4PkaFYhPwR0",
@@ -2239,9 +2239,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2024-05-26",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 8:37-44, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 26th May 2024.",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on John 8:37-44, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 26th May 2024.",
       "uploaded": "2024-05-27T06:32:14Z",
       "source": "youtube"
     },
@@ -2275,9 +2275,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2024-05-19",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 8:33-35, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 19th May 2024.",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on John 8:33-35, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 19th May 2024.",
       "uploaded": "2024-05-20T06:49:15Z",
       "source": "youtube"
     },
@@ -2311,9 +2311,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2024-05-12",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 8:31-32, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 12th May 2024.",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on John 8:31-32, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 12th May 2024.",
       "uploaded": "2024-05-13T06:34:18Z",
       "source": "youtube"
     },
@@ -2335,9 +2335,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2024-05-05",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 8:25-30, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 5th May 2024.",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on John 8:25-30, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 5th May 2024.",
       "uploaded": "2024-05-06T06:28:24Z",
       "source": "youtube"
     },
@@ -2371,9 +2371,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2024-04-28",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 8:21-24, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 28th April 2024.",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry on John 8:21-24, preached by Pastor Andrew Saywell (Grace Chapel, Folkestone) on Sunday 28th April 2024.",
       "uploaded": "2024-04-29T09:31:00Z",
       "source": "youtube"
     },
@@ -2945,11 +2945,11 @@
       "id": "KFYLUrDQ3eQ",
       "title": "John 8:36 (Gospel Ministry, on Sunday 3rd December 2023)",
       "book": "John",
-      "preacher": null,
+      "preacher": "Jacob Saywell",
       "preached": "2023-12-03",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Live: Gospel Ministry 3rd December 2023.\nExpository gospel ministry at Grace Chapel, by Elder Jacob Saywell",
+      "description": "Meeting Type: Gospel Service\n\nLive: Gospel Ministry 3rd December 2023.\nExpository gospel ministry at Grace Chapel, preached by Jacob Saywell",
       "uploaded": "2023-12-04T07:31:55Z",
       "source": "youtube"
     },
