@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T07:06:45.640378+00:00",
+  "updated": "2026-11-27T07:07:49.855425+00:00",
   "sermons": [
     {
       "id": "4PkaFYhPwR0",
@@ -1563,7 +1563,7 @@
     },
     {
       "id": "QmGwkuythZc",
-      "title": "Live: Gospel Hour, Ministry on Matthew 5:9 (Sunday 27th October 2024)",
+      "title": "Live: Matthew 5:9 (Sunday 27th October 2024)",
       "book": "Matthew",
       "preacher": null,
       "preached": "2024-10-27",
@@ -2882,6 +2882,18 @@
       "source": "youtube"
     },
     {
+      "id": "KFYLUrDQ3eQ",
+      "title": "John 8:36",
+      "book": "John",
+      "preacher": "Jacob Saywell",
+      "preached": "2023-12-23",
+      "meeting_type": "Gospel",
+      "series": null,
+      "description": "Bible Passage: John 8:36\nPreacher: Jacob Saywell.\nDate Preached: 23rd December 2023\nMeeting Type: Gospel Service\n\nLive: Gospel Ministry 3rd December 2023.\nExpository gospel ministry at Grace Chapel, preached by Jacob Saywell",
+      "uploaded": "2023-12-04T07:31:55Z",
+      "source": "youtube"
+    },
+    {
       "id": "ci4osr4m4To",
       "title": "Live: Bible Study on Matthew 13:1-23 (Tuesday 19th December 2023)",
       "book": "Matthew",
@@ -2919,13 +2931,13 @@
     },
     {
       "id": "tHh3LNQ2jqY",
-      "title": "Live: Gospel Ministry on Psalm 72:11 (Sunday 10th December 2023)",
+      "title": "Live: Psalm 72:11 (Sunday 10th December 2023)",
       "book": "Psalms",
       "preacher": "Jacob Saywell",
       "preached": "2023-12-10",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Live Expository Gospel ministry on Psalm 72:1, preached at Grace Chapel on Sunday 10th December 2023. Preacher: Jacob Saywell.",
+      "description": "Meeting Type: Gospel Service\n\nLive Expository Gospel ministry on Psalm 72:1, preached at Grace Chapel on Sunday 10th December 2023. Preacher: Jacob Saywell.",
       "uploaded": "2023-12-11T07:44:23Z",
       "source": "youtube"
     },
@@ -2939,18 +2951,6 @@
       "series": null,
       "description": "Live Expository gospel ministry at Grace Chapel, preaching by Elder Jacob Saywell",
       "uploaded": "2023-12-06T08:53:59Z",
-      "source": "youtube"
-    },
-    {
-      "id": "KFYLUrDQ3eQ",
-      "title": "John 8:36 (Gospel Ministry, on Sunday 3rd December 2023)",
-      "book": "John",
-      "preacher": "Jacob Saywell",
-      "preached": "2023-12-03",
-      "meeting_type": "Gospel",
-      "series": null,
-      "description": "Meeting Type: Gospel Service\n\nLive: Gospel Ministry 3rd December 2023.\nExpository gospel ministry at Grace Chapel, preached by Jacob Saywell",
-      "uploaded": "2023-12-04T07:31:55Z",
       "source": "youtube"
     },
     {
@@ -3391,9 +3391,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2023-08-20",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 6:39-40, preached at Grace Chapel on Sunday the 20th August 2023. Preacher: Pastor Andrew Saywell.",
+      "description": "Bible Passage: John 6:39-40\nPreacher: Andrew Saywell.\nDate Preached: 20th August 2023\nMeeting Type: Gospel Service\n\nExpository Gospel ministry on John 6:39-40, preached at Grace Chapel on Sunday the 20th August 2023. Preacher: Pastor Andrew Saywell.",
       "uploaded": "2023-08-21T06:33:19Z",
       "source": "youtube"
     },
@@ -3427,9 +3427,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2023-08-13",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry on John 6:37-39, preached at Grace Chapel on Sunday the 13th August 2023. Preacher: Pastor Andrew Saywell.",
+      "description": "Bible Passage: John 6:37-39\nPreacher: Andrew Saywell.\nDate Preached: 13th August 2023\nMeeting Type: Gospel Service\n\nExpository Gospel ministry on John 6:37-39, preached at Grace Chapel on Sunday the 13th August 2023. Preacher: Pastor Andrew Saywell.",
       "uploaded": "2023-08-14T06:37:30Z",
       "source": "youtube"
     },
@@ -4106,18 +4106,6 @@
       "source": "youtube"
     },
     {
-      "id": "kr9y-xrwrFs",
-      "title": "Live: John 5:21-23 (Gospel Ministry 5th March 2023)",
-      "book": "John",
-      "preacher": null,
-      "preached": null,
-      "meeting_type": null,
-      "series": null,
-      "description": "",
-      "uploaded": "2023-03-06T07:43:22Z",
-      "source": "youtube"
-    },
-    {
       "id": "dmQLeJSQla0",
       "title": "Live: Pastoral Ministry 5th March 2023",
       "book": "Exodus",
@@ -4127,6 +4115,18 @@
       "series": null,
       "description": "Exodus 20:13",
       "uploaded": "2023-03-06T00:44:46Z",
+      "source": "youtube"
+    },
+    {
+      "id": "kr9y-xrwrFs",
+      "title": "Live: John 5:21-23 (Gospel Ministry 5th March 2023)",
+      "book": "John",
+      "preacher": "Andrew Saywell",
+      "preached": "2023-03-05",
+      "meeting_type": "Gospel",
+      "series": null,
+      "description": "Bible Passage: John 5:21-23\nPreacher: Andrew Saywell.\nDate Preached: 5th March 2023\nMeeting Type: Gospel Service",
+      "uploaded": "2023-03-06T07:43:22Z",
       "source": "youtube"
     },
     {
@@ -4613,11 +4613,11 @@
       "id": "tlBzAYxiinQ",
       "title": "John 4 v10",
       "book": "John",
-      "preacher": null,
+      "preacher": "Andrew Saywell",
       "preached": "2022-11-13",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry (13th November 2022) by Pastor Andrew Saywell",
+      "description": "Bible Passage: John 4:10\nPreacher: Andrew Saywell.\nDate Preached: 13th November 2022\nMeeting Type: Gospel Service\n\nGospel Ministry (13th November 2022) by Pastor Andrew Saywell",
       "uploaded": "2022-11-14T07:29:42Z",
       "source": "youtube"
     },
@@ -7409,11 +7409,11 @@
       "id": "_pEwqvON6qY",
       "title": "1 Corinthians 2:7-10a",
       "book": "1 Corinthians",
-      "preacher": null,
-      "preached": null,
-      "meeting_type": null,
+      "preacher": "Andrew Saywell",
+      "preached": "2021-02-07",
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Pastoral ministry 7th Feb 2021",
+      "description": "Bible Passage: 1 Corinthians 2:7-10\nPreacher: Andrew Saywell.\nDate Preached: 7th February 2021\nMeeting Type: Teaching Service\n\nPastoral ministry 7th Feb 2021",
       "uploaded": "2021-02-08T21:10:13Z",
       "source": "youtube"
     },
