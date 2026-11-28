@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T07:07:49.855425+00:00",
+  "updated": "2026-11-28T07:00:35.659980+00:00",
   "sermons": [
     {
       "id": "4PkaFYhPwR0",
@@ -734,18 +734,6 @@
       "source": "youtube"
     },
     {
-      "id": "Q0n1ZjxIE2w",
-      "title": "Live: Pastoral ministry on John 17:15-16 (Sunday 25th May 2025)",
-      "book": "John",
-      "preacher": null,
-      "preached": null,
-      "meeting_type": null,
-      "series": null,
-      "description": "Expository Pastoral ministry on John 17:15-16 by Pastor Andrew Saywell.\n\nWith traditional hymns, and readings.",
-      "uploaded": "2025-05-25T23:38:39Z",
-      "source": "youtube"
-    },
-    {
       "id": "9-0weMjKKGk",
       "title": "Live: Gospel hour, ministry on Matthew 7:1-5",
       "book": "Matthew",
@@ -755,6 +743,18 @@
       "series": null,
       "description": "Date Preached: Sunday 25th May 2025\nMeeting Type: Gospel Service\n\nWarm, persuasive, expository Gospel ministry on Matthew 7:1-5, preached by Pastor Andrew Saywell.\n\nWith traditional hymns, and readings.",
       "uploaded": "2025-05-26T06:37:12Z",
+      "source": "youtube"
+    },
+    {
+      "id": "Q0n1ZjxIE2w",
+      "title": "Live: John 17:15-16",
+      "book": "John",
+      "preacher": "Andrew Saywell",
+      "preached": "2025-05-25",
+      "meeting_type": "Teaching",
+      "series": null,
+      "description": "Bible Passage: John 17:15-16\nPreacher: Andrew Saywell.\nDate Preached: 25th May 2025\nMeeting Type: Teaching Service\n\nExpository Pastoral ministry on John 17:15-16 by Pastor Andrew Saywell.\n\nWith traditional hymns, and readings.",
+      "uploaded": "2025-05-25T23:38:39Z",
       "source": "youtube"
     },
     {
@@ -771,13 +771,13 @@
     },
     {
       "id": "jVx6Jjjhj90",
-      "title": "Live: Pastoral ministry on John 13:1-17 (Sunday 18th May 2025)",
+      "title": "Live: John 13:1-17",
       "book": "John",
-      "preacher": null,
-      "preached": null,
-      "meeting_type": null,
+      "preacher": "Andrew Saywell",
+      "preached": "2025-05-18",
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Expository Pastoral ministry on John 13:1-17 by Pastor Andrew Saywell",
+      "description": "Bible Passage: John 13:1-17\nPreacher: Andrew Saywell.\nDate Preached: 18th May 2025\nMeeting Type: Teaching Service\n\nExpository Pastoral ministry on John 13:1-17 by Pastor Andrew Saywell",
       "uploaded": "2025-05-18T23:34:14Z",
       "source": "youtube"
     },
@@ -831,13 +831,13 @@
     },
     {
       "id": "RuglkZS3R1A",
-      "title": "Live: Pastoral Ministry on Matthew 8:1-4 (Sunday 4th May 2025)",
+      "title": "Live: Matthew 8:1-4",
       "book": "Matthew",
       "preacher": "Andrew Saywell",
-      "preached": null,
-      "meeting_type": null,
+      "preached": "2025-05-04",
+      "meeting_type": "Teaching",
       "series": null,
-      "description": "Expository Pastoral ministry on Matthew 8:1-4. Preached by Pastor Andrew Saywell.\n\nReadings: Leviticus 13:1-17 and Matthew 8",
+      "description": "Bible Passage: Matthew 8:1-4\nPreacher: Andrew Saywell.\nDate Preached: 4th May 2025\nMeeting Type: Teaching Service\n\nExpository Pastoral ministry on Matthew 8:1-4. Preached by Pastor Andrew Saywell.\n\nReadings: Leviticus 13:1-17 and Matthew 8",
       "uploaded": "2025-05-04T23:33:20Z",
       "source": "youtube"
     },
@@ -3650,6 +3650,18 @@
       "source": "youtube"
     },
     {
+      "id": "MMInBxMqbMQ",
+      "title": "Live: Psalm 77",
+      "book": "Psalms",
+      "preacher": "Joshua Oliver",
+      "preached": "2023-06-27",
+      "meeting_type": "Bible Study",
+      "series": null,
+      "description": "Bible Passage: Psalm 77\nPreacher: Joshua Oliver.\nDate Preached: 27th June 2023\nMeeting Type: Bible Study",
+      "uploaded": "2023-06-28T07:42:18Z",
+      "source": "youtube"
+    },
+    {
       "id": "_sdOEKSLu3o",
       "title": "Live: Bible Study on 1 Corinthians 15:24-28",
       "book": "1 Corinthians",
@@ -3663,13 +3675,13 @@
     },
     {
       "id": "FljvJW46bxo",
-      "title": "Live: Gospel Ministry on John 6:1-7",
+      "title": "Live: John 6:1-7",
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2023-06-18",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository gospel ministry by Pastor Andrew Saywell on Sunday 18th June 2023",
+      "description": "Meeting Type: Gospel Service\n\nExpository gospel ministry by Pastor Andrew Saywell on Sunday 18th June 2023",
       "uploaded": "2023-06-19T08:34:04Z",
       "source": "youtube"
     },
@@ -3883,9 +3895,9 @@
       "book": "Luke",
       "preacher": "Joshua Oliver",
       "preached": "2023-04-30",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Expository Gospel ministry (30th April 2023) preached by Joshua Oliver",
+      "description": "Meeting Type: Gospel Service\n\nExpository Gospel ministry (30th April 2023) preached by Joshua Oliver",
       "uploaded": "2023-05-06T09:57:51Z",
       "source": "youtube"
     },
@@ -4795,9 +4807,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-10-09",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 9th October 2022, by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 9th October 2022, by Pastor Andrew Saywell",
       "uploaded": "2022-10-10T06:28:46Z",
       "source": "youtube"
     },
@@ -4831,9 +4843,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-10-02",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 2nd October 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 2nd October 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-10-03T06:28:52Z",
       "source": "youtube"
     },
@@ -4867,9 +4879,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-09-25",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 25th September 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 25th September 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-09-26T06:27:03Z",
       "source": "youtube"
     },
@@ -4903,9 +4915,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-09-19",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 19th September 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 19th September 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-09-19T06:33:06Z",
       "source": "youtube"
     },
@@ -4951,9 +4963,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-09-11",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 11th September 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 11th September 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-09-12T06:39:33Z",
       "source": "youtube"
     },
@@ -4987,9 +4999,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-09-04",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 4th September 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 4th September 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-09-05T06:35:46Z",
       "source": "youtube"
     },
@@ -5023,9 +5035,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-08-28",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 28th August 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 28th August 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-08-29T06:39:12Z",
       "source": "youtube"
     },
@@ -5035,9 +5047,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-08-21",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel Ministry preached at Grace Chapel on Sunday 21st August 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel Ministry preached at Grace Chapel on Sunday 21st August 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-08-22T06:37:39Z",
       "source": "youtube"
     },
@@ -5059,9 +5071,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-08-07",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel ministry preached at Grace Chapel on Sunday 7th August 2022 by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel ministry preached at Grace Chapel on Sunday 7th August 2022 by Pastor Andrew Saywell",
       "uploaded": "2022-08-08T06:48:02Z",
       "source": "youtube"
     },
@@ -5083,9 +5095,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-07-31",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel ministry preached at Grace Chapel on Sunday 31st July 2022, by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel ministry preached at Grace Chapel on Sunday 31st July 2022, by Pastor Andrew Saywell",
       "uploaded": "2022-08-01T06:26:15Z",
       "source": "youtube"
     },
@@ -5131,9 +5143,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-07-24",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel ministry preached at Grace Chapel on Sunday 24th July 2022, by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel ministry preached at Grace Chapel on Sunday 24th July 2022, by Pastor Andrew Saywell",
       "uploaded": "2022-07-25T06:28:47Z",
       "source": "youtube"
     },
@@ -5179,9 +5191,9 @@
       "book": "John",
       "preacher": "Andrew Saywell",
       "preached": "2022-07-10",
-      "meeting_type": null,
+      "meeting_type": "Gospel",
       "series": null,
-      "description": "Gospel ministry preached at Grace Chapel on Sunday 10th July 2022, by Pastor Andrew Saywell",
+      "description": "Meeting Type: Gospel Service\n\nGospel ministry preached at Grace Chapel on Sunday 10th July 2022, by Pastor Andrew Saywell",
       "uploaded": "2022-07-11T06:31:30Z",
       "source": "youtube"
     },
